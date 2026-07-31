@@ -7,13 +7,13 @@ import { Reveal } from "@/components/ui/reveal";
 export const metadata: Metadata = {
   title: "Contact — Book a free discovery call",
   description:
-    "Tell us about your project in 60 seconds. Get a reply within 24 hours, a live site audit on your first call, and a fixed-price quote.",
+    "Tell us about your project in 60 seconds. Get a reply within 6 hours, a live site audit on your first call, and a fixed-price quote.",
 };
 
 const nextSteps = [
   {
     icon: Reply,
-    title: "We reply within 24 hours",
+    title: "We reply within 6 hours",
     text: "A senior reads every brief — no bots, no qualification scripts.",
   },
   {
@@ -23,7 +23,7 @@ const nextSteps = [
   },
   {
     icon: FileSignature,
-    title: "Fixed quote within 48 hours",
+    title: "Fixed quote within 12 hours",
     text: "Scope, timeline, and price in writing. The quote is the invoice.",
   },
 ];

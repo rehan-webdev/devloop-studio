@@ -30,7 +30,7 @@ export const team = [
   {
     name: "Rehan Tariq",
     role: "Founder · Full Stack Developer",
-    initials: "AR",
+    initials: "RT",
     bio: "Ex-in-house at two unicorns. Believes strategy without craft is a memo, and craft without strategy is decoration.",
     accent: "from-orange-400 to-amber-500",
   },

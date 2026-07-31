@@ -8,7 +8,7 @@ export const site = {
   description:
     "DevLoop is a conversion-focused web design & development studio. We design and build fast, beautiful websites for SaaS startups, e-commerce brands and service businesses — launched in 3 weeks, guaranteed.",
   url: "https://devloop.site",
-  email: "hello@devloop.site",
+  email: "devloop.site@gmail.com",
   phone: "+923281098252",
   location: "Remote-first · Serving clients worldwide",
   founded: "2019",

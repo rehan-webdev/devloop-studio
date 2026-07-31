@@ -11,10 +11,10 @@ export const projectTypes = [
 ] as const;
 
 export const budgetRanges = [
-  "Under $5k",
-  "$5k – $10k",
-  "$10k – $25k",
-  "$25k+",
+  "Under $500",
+  "$500 – $1000",
+  "$1000 – $2500",
+  "$2500+",
   "Not sure yet",
 ] as const;
 

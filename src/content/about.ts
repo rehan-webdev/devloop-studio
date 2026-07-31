@@ -28,8 +28,8 @@ export const values = [
 
 export const team = [
   {
-    name: "Alex Rivera",
-    role: "Founder · Design Lead",
+    name: "Rehan Tariq",
+    role: "Founder · Full Stack Developer",
     initials: "AR",
     bio: "Ex-in-house at two unicorns. Believes strategy without craft is a memo, and craft without strategy is decoration.",
     accent: "from-orange-400 to-amber-500",

@@ -4,6 +4,7 @@ import { site } from "@/content/site";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import "./globals.css";
+import Script from 'next/script';
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -117,6 +118,15 @@ export default function RootLayout({
         </main>
         <Footer />
       </body>
+      <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JK8LF8BGYK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JK8LF8BGYK');
+</script>
     </html>
   );
 }

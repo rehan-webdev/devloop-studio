@@ -100,33 +100,41 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${fraunces.variable} ${inter.variable} ${plex.variable}`}
+<html
+  lang="en"
+  className={`${fraunces.variable} ${inter.variable} ${plex.variable}`}
+>
+  <body className="flex min-h-screen flex-col">
+    <JsonLd />
+    <a
+      href="#main"
+      className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-ink-950 focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-cream"
     >
-      <body className="flex min-h-screen flex-col">
-        <JsonLd />
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-100 focus:rounded-full focus:bg-ink-950 focus:px-5 focus:py-2.5 focus:text-sm focus:font-semibold focus:text-cream"
-        >
-          Skip to content
-        </a>
-        <Navbar />
-        <main id="main" className="flex-1">
-          {children}
-        </main>
-        <Footer />
-      </body>
-      <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JK8LF8BGYK"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+      Skip to content
+    </a>
 
-  gtag('config', 'G-JK8LF8BGYK');
-</script>
-    </html>
+    <Navbar />
+
+    <main id="main" className="flex-1">
+      {children}
+    </main>
+
+    <Footer />
+  </body>
+
+  <Script
+    src="https://www.googletagmanager.com/gtag/js?id=G-JK8LF8BGYK"
+    strategy="afterInteractive"
+  />
+
+  <Script id="google-analytics" strategy="afterInteractive">
+    {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-JK8LF8BGYK');
+    `}
+  </Script>
+</html>
   );
 }

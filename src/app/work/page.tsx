@@ -6,9 +6,9 @@ import { Reveal } from "@/components/ui/reveal";
 import { WorkGrid } from "@/components/work/work-grid";
 
 export const metadata: Metadata = {
-  title: "Work — Case studies with real numbers",
+  title: "Work — Websites for brands, businesses, and builders",
   description:
-    "SaaS, e-commerce and professional service websites that moved real metrics: +142% demo conversions, +89% revenue, +210% consultation requests.",
+    "Explore DevLoop websites for healthcare, food and beverage, real estate, personal brands, and automotive businesses, with live previews and project stories.",
 };
 
 export default function WorkPage() {
@@ -23,7 +23,7 @@ export default function WorkPage() {
             <span className="italic text-brand-600">metric that matters.</span>
           </>
         }
-        description="Filter by industry, open a case study, and judge us the way our clients do: on challenge, approach, and measurable results."
+        description="Browse by category, open a case study, or visit each live website to see how the work feels in the real world."
       />
 
       <section className="site-container pb-24">

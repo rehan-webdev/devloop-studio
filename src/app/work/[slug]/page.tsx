@@ -1,4 +1,4 @@
-import { ArrowLeft, ArrowRight, CheckCircle2, Quote } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ExternalLink, Quote } from "lucide-react";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -76,6 +76,15 @@ export default async function CaseStudyPage({
             <h1 className="mt-4 max-w-4xl font-display text-4xl leading-[1.05] font-medium tracking-tight text-balance text-ink-900 sm:text-6xl">
               {study.title}
             </h1>
+            <a
+              href={study.liveUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-7 inline-flex items-center gap-2 rounded-full bg-ink-950 px-5 py-3 text-sm font-semibold text-cream transition-colors hover:bg-brand-500 hover:text-ink-950"
+            >
+              View live website
+              <ExternalLink className="size-4" aria-hidden />
+            </a>
           </Reveal>
 
           {/* Meta */}

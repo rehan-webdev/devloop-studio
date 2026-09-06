@@ -1,12 +1,9 @@
-/**
- * Case studies — shown on home (featured), /work grid, and /work/[slug].
- * `category` powers the portfolio filter.
- */
+/** Case studies shown on home, /work, and /work/[slug]. */
 export type CaseStudy = {
   slug: string;
   client: string;
   title: string;
-  category: "SaaS" | "E-commerce" | "Professional Services";
+  category: "Healthcare & Wellness" | "Food & Beverage" | "Real Estate" | "Personal Portfolio" | "Automotive";
   industry: string;
   year: string;
   duration: string;
@@ -14,6 +11,7 @@ export type CaseStudy = {
   summary: string;
   image: string;
   imageAlt: string;
+  liveUrl: string;
   headlineMetric: { value: string; label: string };
   metrics: { value: string; label: string }[];
   challenge: string[];
@@ -24,309 +22,125 @@ export type CaseStudy = {
   featured: boolean;
 };
 
+const commonResults = (subject: string) => [
+  `${subject} is now organized around a clear visitor journey`,
+  "The content gives visitors useful context before asking for an inquiry",
+  "A focused call to action makes the next step easy to understand",
+];
+
 export const caseStudies: CaseStudy[] = [
   {
-    slug: "northwind-saas",
-    client: "Northwind",
-    title: "Turning a leaky demo funnel into a growth engine",
-    category: "SaaS",
-    industry: "B2B SaaS · Project management",
-    year: "2025",
-    duration: "3 weeks",
-    services: ["Web Design", "Development", "CRO"],
-    summary:
-      "A Series A SaaS with strong traffic but a 0.9% demo conversion rate. We rebuilt the site around one job — booking demos — and lifted conversions by 142%.",
-    image: "/images/case-northwind.webp",
-    imageAlt:
-      "Northwind SaaS marketing website shown on a laptop, with an orange analytics dashboard UI.",
-    headlineMetric: { value: "+142%", label: "demo conversions in 60 days" },
-    metrics: [
-      { value: "+142%", label: "Demo conversion rate" },
-      { value: "0.68s", label: "Largest Contentful Paint" },
-      { value: "-38%", label: "Cost per qualified demo" },
-      { value: "3.1×", label: "Pipeline from organic search" },
-    ],
-    challenge: [
-      "Northwind had everything a Series A startup is supposed to have: solid product, healthy traffic from content marketing, and a sales team hungry for demos. What they didn't have was a website that could close the gap. Demo conversion sat at 0.9%, and every paid campaign was subsidizing a leaky funnel.",
-      "The existing site had grown organically over two years: six competing CTAs per page, feature screenshots instead of outcomes, and a demo form with nine required fields. Prospects were arriving interested and leaving confused.",
-    ],
-    approach: [
-      "Interviewed 8 recent customers to map the real buying triggers and objections",
-      "Rebuilt the information architecture around one primary action: book a demo",
-      "Replaced feature-first copy with outcome-led messaging and proof at every scroll depth",
-      "Cut the demo form from 9 fields to 4 and added calendar scheduling inline",
-      "Rebuilt on Next.js, taking LCP from 3.4s to 0.68s",
-    ],
-    solution: [
-      "We designed a focused narrative for every page: problem, outcome, proof, action. Interactive product tours replaced static screenshots, so visitors could feel the product before talking to sales. Social proof was moved from a forgotten wall-of-logos to contextually placed quotes beside every claim.",
-      "Under the hood, a fresh Next.js build with a headless CMS means the marketing team now ships landing pages in hours, not sprints. Every element is instrumented, so CRO experiments continuously build on the new baseline.",
-    ],
-    results: [
-      "Demo conversion rate rose from 0.9% to 2.18% within 60 days of launch",
-      "Cost per qualified demo dropped 38% across paid channels",
-      "Organic pipeline grew 3.1× in two quarters on the new content architecture",
-      "Marketing ships 6–8 landing pages per month without developer help",
-    ],
-    quote: {
-      text: "DevLoop treated our website like a product, not a brochure. The new site books more demos in a week than the old one did in a month — and our team can finally move at the speed of our roadmap.",
-      author: "Maya Lindqvist",
-      role: "VP Marketing, Northwind",
-    },
-    featured: true,
+    slug: "dietitian-esha", client: "Dietitian Esha", title: "Making personalized nutrition feel close, clear, and possible",
+    category: "Healthcare & Wellness", industry: "Nutrition · Online consultations", year: "2026", duration: "3 weeks",
+    services: ["Brand Direction", "Web Design", "Development"], summary: "A warm consultation experience for personalized weight, PCOS, diabetes, and lifestyle nutrition support from anywhere.",
+    image: "/images/dietitianesha.webp", imageAlt: "Dietitian Esha Nasir consultation website", liveUrl: "https://dietitianesha.com",
+    headlineMetric: { value: "4+", label: "core care pathways" }, metrics: [{ value: "4+", label: "Core pathways" }, { value: "3", label: "Consultation steps" }, { value: "24/7", label: "Online access" }, { value: "1:1", label: "Personal guidance" }],
+    challenge: ["Nutrition clients arrive with very different conditions, routines, and goals. The site needed to explain that breadth without feeling like a medical directory or promising a one-size-fits-all plan.", "The key action was starting a conversation, so visitors needed a reassuring route from service discovery to WhatsApp consultation."],
+    approach: ["Led with Dr. Esha and her sustainable nutrition philosophy", "Grouped care around recognizable goals including weight, PCOS, and chronic conditions", "Explained assessment, planning, and follow-up in three steps", "Placed consultation actions beside services, proof, and contact"],
+    solution: ["A soft editorial landing page gives personalized care a calm digital home. Service sections answer what clients need help with, while transformation stories add context without turning health outcomes into guarantees.", "The consultation flow collects useful first-contact details and keeps WhatsApp one tap away for Pakistan and international clients."],
+    results: commonResults("The nutrition practice"), quote: { text: "The site makes personalized nutrition feel as thoughtful and approachable as the care itself.", author: "Dr. Esha Nasir", role: "Consultant Dietitian & Nutritionist" }, featured: true,
   },
   {
-    slug: "atlas-outdoors",
-    client: "Atlas Outdoors",
-    title: "A headless storefront that carries its own weight",
-    category: "E-commerce",
-    industry: "E-commerce · Outdoor gear",
-    year: "2025",
-    duration: "4 weeks",
-    services: ["Development", "Web Design", "SEO"],
-    summary:
-      "A growing outdoor gear brand drowning in plugin debt. We rebuilt their Shopify storefront headless — 2.1s faster loads, +89% revenue, and a 90+ Lighthouse score.",
-    image: "/images/case-atlas.png",
-    imageAlt:
-      "Atlas Outdoors e-commerce storefront on desktop and mobile with warm orange product photography.",
-    headlineMetric: { value: "+89%", label: "online revenue quarter over quarter" },
-    metrics: [
-      { value: "+89%", label: "Online revenue (QoQ)" },
-      { value: "2.1s", label: "Faster page loads" },
-      { value: "+34%", label: "Add-to-cart rate" },
-      { value: "96", label: "Lighthouse performance score" },
-    ],
-    challenge: [
-      "Atlas Outdoors had outgrown their theme. Eleven plugins, a 4.2-second mobile load time, and a checkout bounce rate that made every paid click more expensive than it should be. Peak season was eight weeks away.",
-      "The brand's photography and community were world-class — but the storefront felt generic, and mobile shoppers (71% of their traffic) were getting the worst of it.",
-    ],
-    approach: [
-      "Kept Shopify for operations; rebuilt the storefront headless with Next.js for speed",
-      "Designed a mobile-first shopping experience with one-tap galleries and sticky add-to-cart",
-      "Rebuilt collection navigation around how people actually shop: activity, weather, skill level",
-      "Preserved and enhanced SEO with full redirect mapping and structured data",
-      "Launched a UGC-driven lookbook to shorten the path from inspiration to product",
-    ],
-    solution: [
-      "The new storefront serves pre-rendered pages from the edge — product pages load in well under a second on 4G. A redesigned PDP puts reviews, sizing tools, and real trail photos within a thumb's reach, and checkout friction was cut with express payment options surfaced early.",
-      "The content team publishes buying guides through a headless CMS that feeds directly into collection pages, turning SEO content into shoppable moments instead of dead-end blog posts.",
-    ],
-    results: [
-      "Revenue up 89% quarter over quarter, with the highest Black Friday in company history",
-      "Add-to-cart rate improved 34%; checkout abandonment down 21%",
-      "Mobile conversion rate nearly doubled (1.1% → 2.1%)",
-      "Organic product-page traffic up 61% from enriched structured data",
-    ],
-    quote: {
-      text: "We braced for a painful replatform and got the opposite — four weeks, zero downtime, and a storefront that finally matches the quality of our gear. The numbers spoke within days.",
-      author: "Daniel Reyes",
-      role: "Founder, Atlas Outdoors",
-    },
-    featured: true,
+    slug: "essence-coffee", client: "ESSENCE Coffee", title: "Turning a coffee ritual into a place you can almost taste",
+    category: "Food & Beverage", industry: "Coffee · Artisan roastery", year: "2026", duration: "4 weeks",
+    services: ["Brand Direction", "Web Design", "Development"], summary: "A ceremonial Turkish coffee experience for a Multan roastery built around small-batch craft, ritual, and an unmistakable collection.",
+    image: "/images/essence-first-screen.webp", imageAlt: "ESSENCE Coffee ceremonial Turkish coffee website", liveUrl: "https://essence.devloop.site",
+    headlineMetric: { value: "1998", label: "roastery story" }, metrics: [{ value: "6", label: "Signature drinks" }, { value: "3", label: "Story collections" }, { value: "120k+", label: "Coffee lovers" }, { value: "7–22", label: "Daily hours" }],
+    challenge: ["ESSENCE had a rich story: heirloom cherries, copper-batch roasting, and three generations of recipes. The challenge was making heritage feel current rather than museum-like.", "The site had to move naturally between brand storytelling and useful actions such as browsing the collection, ordering ahead, and visiting the Multan roastery."],
+    approach: ["Made ceremonial Turkish coffee the central narrative", "Connected each drink with a short sensory description", "Balanced editorial story sections with a scannable collection", "Carried the warmth through gallery, visit details, and newsletter"],
+    solution: ["The experience opens like a ritual: deliberate type, tactile coffee imagery, and language that slows the visitor down. The collection stays easy to browse, with signature drinks and prices available without interrupting the mood.", "A clear path from story to order-ahead and roastery details turns brand desire into a visit or purchase."],
+    results: commonResults("The roastery story"), quote: { text: "The website finally feels like the first pour: patient, precise, and full of character.", author: "ESSENCE Coffee", role: "Small-batch roastery, Multan" }, featured: true,
   },
   {
-    slug: "meridian-legal",
-    client: "Meridian Legal",
-    title: "From referral-dependent to a predictable lead engine",
-    category: "Professional Services",
-    industry: "Legal · Boutique commercial law",
-    year: "2024",
-    duration: "3 weeks",
-    services: ["Web Design", "SEO & Content", "Branding"],
-    summary:
-      "A respected law firm invisible online. A repositioned brand, a trust-first website, and local SEO turned search into their #1 source of new clients.",
-    image: "/images/case-meridian.webp",
-    imageAlt:
-      "Meridian Legal website in a refined cream and ink design with orange accents, displayed on a tablet.",
-    headlineMetric: { value: "+210%", label: "qualified consultation requests" },
-    metrics: [
-      { value: "+210%", label: "Qualified consultations" },
-      { value: "#1", label: "Local pack for 9 practice areas" },
-      { value: "62%", label: "of new clients now arrive via search" },
-      { value: "-47%", label: "Bounce rate on practice pages" },
-    ],
-    challenge: [
-      "Meridian Legal had an excellent reputation and a website from 2016 that actively undermined it. Prospects referred by clients would search the firm, find a dated site with stock photography, and quietly choose a competitor who looked more current.",
-      "Referrals were flat, and the partners wanted predictable growth without hiring a full in-house marketing team.",
-    ],
-    approach: [
-      "Repositioned the brand around 'counsel for companies that move fast' with a refreshed identity",
-      "Built practice-area pages that answer real client questions instead of listing credentials",
-      "Introduced attorney profiles with personality — photos, specialties, and direct booking links",
-      "Ran a full local SEO program: Google Business, citations, reviews engine",
-      "Added a 3-step consultation form with qualifying questions to protect partner time",
-    ],
-    solution: [
-      "The new site leads with outcomes and plain language — no legalese, no marble columns. Each practice page answers the five questions prospects actually ask, backed by case outcomes and client quotes, with a consultation CTA that books directly into attorney calendars.",
-      "A locally optimized content hub now ranks for commercial-law queries across the metro area, and an automated review flow keeps fresh social proof flowing to their Google profile.",
-    ],
-    results: [
-      "Qualified consultation requests up 210% year over year",
-      "Local pack position #1 for 9 of 11 target practice areas",
-      "62% of new-client intake now originates from organic search",
-      "Average consultation booking time dropped from 4 days to same-day",
-    ],
-    quote: {
-      text: "For years our website was the firm we apologized for. Now it's the firm we lead with. Partners used to chase referrals — today the calendar fills itself.",
-      author: "Priya Nair",
-      role: "Managing Partner, Meridian Legal",
-    },
-    featured: true,
+    slug: "maham-wellness", client: "Maham", title: "A softer digital home for bridal nutrition and everyday glow",
+    category: "Healthcare & Wellness", industry: "Nutrition · Bridal wellness", year: "2026", duration: "3 weeks",
+    services: ["Brand Direction", "Web Design", "Development"], summary: "An editorial wellness experience that helps brides find thoughtful nourishment without crash diets, pressure, or noise.",
+    image: "/images/maham.webp", imageAlt: "Maham bridal nutrition and wellness website", liveUrl: "https://maham.devloop.site",
+    headlineMetric: { value: "3", label: "self-guided paths" }, metrics: [{ value: "3", label: "Wellness paths" }, { value: "1", label: "Free bridal guide" }, { value: "6", label: "FAQ topics" }, { value: "0", label: "Pressure promises" }],
+    challenge: ["Bridal wellness is crowded with urgency and body-pressure messaging. Maham needed a site that made nourishment feel beautiful, practical, and emotionally lighter.", "The experience also needed room for programs, journal pieces, recipes, and free resources without losing its intimate tone."],
+    approach: ["Built around three chapters: before the big day, everyday glow, and beyond the wedding", "Used food and floral imagery as editorial storytelling", "Created a route from philosophy to programs, resources, journal, and FAQs", "Made the no-pressure positioning explicit throughout"],
+    solution: ["Maham feels more like a considered magazine than a sales funnel. Large, quiet imagery introduces the point of view, while program cards let visitors choose the chapter that matches their life.", "The free bridal guide and journal make the site useful before someone is ready for a program."],
+    results: commonResults("The wellness brand"), quote: { text: "It feels like the kind of support we want people to feel when they arrive: calm, considered, and kind.", author: "Maham", role: "Bridal nutrition and wellness" }, featured: true,
   },
   {
-    slug: "pulse-fitness",
-    client: "Pulse Fitness",
-    title: "Filling classes with a booking flow people actually finish",
-    category: "Professional Services",
-    industry: "Fitness · Boutique studios",
-    year: "2025",
-    duration: "3 weeks",
-    services: ["Web Design", "Development", "CRO"],
-    summary:
-      "Two boutique gyms, one clunky booking widget, and half of trial signups abandoning. A frictionless mobile booking flow lifted trial bookings by 156%.",
-    image: "/images/case-pulse.png",
-    imageAlt:
-      "Pulse Fitness website with energetic orange class schedule UI on a smartphone.",
-    headlineMetric: { value: "+156%", label: "trial class bookings" },
-    metrics: [
-      { value: "+156%", label: "Trial class bookings" },
-      { value: "-58%", label: "Booking abandonment" },
-      { value: "41%", label: "Trial-to-member conversion" },
-      { value: "0.9s", label: "Mobile page load" },
-    ],
-    challenge: [
-      "Pulse Fitness had packed classes, great reviews, and a booking flow that felt like paperwork. Their embedded scheduling widget required account creation before a first visit — and 71% of mobile visitors gave up before finishing.",
-      "With a third location opening, they needed a site that could convert Instagram traffic into booked mats without adding front-desk headcount.",
-    ],
-    approach: [
-      "Designed a guest checkout for trial classes: pick a class, pick a time, done",
-      "Rebuilt the schedule as a fast, filterable native UI instead of an iframe widget",
-      "Added social proof at decision points: ratings beside every class and coach",
-      " wired automated SMS reminders to cut no-shows",
-      "Localized landing pages for each studio with maps, parking, and coach bios",
-    ],
-    solution: [
-      "The new site treats booking like e-commerce: a class is a product, and reserving a spot takes three taps. First-time visitors can book as guests — accounts are created automatically after the visit, when motivation is at its peak.",
-      "Coach-led storytelling and real class photos replaced generic gym stock, and each studio page now ranks and converts independently for its neighborhood.",
-    ],
-    results: [
-      "Trial bookings up 156% in the first 90 days",
-      "Booking abandonment cut by 58% after removing forced sign-up",
-      "41% of trial guests convert to memberships (up from 27%)",
-      "No-show rate down a third thanks to automated reminders",
-    ],
-    quote: {
-      text: "The old widget was costing us members we'll never know about. DevLoop made booking feel effortless — our front desk finally spends its time with members, not passwords.",
-      author: "Marcus Oyelaran",
-      role: "Co-owner, Pulse Fitness",
-    },
-    featured: false,
+    slug: "zamzam-icon", client: "Zamzam Icon", title: "Selling a landmark address through calm, considered detail",
+    category: "Real Estate", industry: "Property · Luxury residences", year: "2026", duration: "4 weeks",
+    services: ["Art Direction", "Web Design", "Development"], summary: "A premium property story for Clifton residences, combining architecture, availability, payment planning, and private viewings.",
+    image: "/images/zamzam.webp", imageAlt: "Zamzam Icon luxury residence website", liveUrl: "https://zamzam.devloop.site",
+    headlineMetric: { value: "48", label: "month ownership plan" }, metrics: [{ value: "2 & 3", label: "Bedroom homes" }, { value: "48 mo", label: "Payment plan" }, { value: "24/7", label: "Secure arrival" }, { value: "Clifton", label: "Karachi address" }],
+    challenge: ["Zamzam Icon needed to communicate more than square footage. The site had to sell a feeling of arrival while answering practical questions about residences, payments, amenities, and location.", "Because availability changes, the experience needed a strong inquiry path instead of pretending every unit could be purchased online."],
+    approach: ["Led with elevated living and iconic-by-nature positioning", "Separated residences, payment, amenities, and location into decision stages", "Used gallery moments to make the lobby, interiors, and exterior tangible", "Made private viewing and live availability the primary actions"],
+    solution: ["The result is a composed property presentation that moves from aspiration to specifics. Residence cards give buyers the essentials, while the payment estimator and buyer journey make the next step understandable.", "Clifton is treated as part of the product, connecting the building to dining, retail, healthcare, and coastline landmarks."],
+    results: commonResults("The project story"), quote: { text: "The experience gives the project the quiet confidence of the address it represents.", author: "Zamzam Icon", role: "Premium residences, Clifton Karachi" }, featured: true,
   },
   {
-    slug: "bloom-beauty",
-    client: "Bloom & Co.",
-    title: "A skincare brand that sells the ritual, not just the bottle",
-    category: "E-commerce",
-    industry: "E-commerce · Skincare & beauty",
-    year: "2024",
-    duration: "4 weeks",
-    services: ["Web Design", "CRO", "Development"],
-    summary:
-      "Beautiful products, anemic average order value. A routine-builder UX, subscription nudges, and bundles lifted AOV by 68% and repeat purchase rate by 44%.",
-    image: "/images/case-bloom.png",
-    imageAlt:
-      "Bloom & Co. skincare e-commerce site with warm cream product cards and orange highlights.",
-    headlineMetric: { value: "+68%", label: "average order value" },
-    metrics: [
-      { value: "+68%", label: "Average order value" },
-      { value: "+44%", label: "Repeat purchase rate" },
-      { value: "23%", label: "of orders now subscriptions" },
-      { value: "+92%", label: "Quiz completion rate" },
-    ],
-    challenge: [
-      "Bloom & Co. had loyal customers who bought single hero products — and never discovered the rest of the line. Average order value had been flat for a year, and rising ad costs made single-item carts unprofitable.",
-      "Their quiz-funnel idea had died twice in development, and subscriptions lived three clicks deep where nobody found them.",
-    ],
-    approach: [
-      "Built a 90-second skin-quiz that outputs a personalized three-step routine",
-      "Designed 'routine' product bundles with graduated savings instead of discounts",
-      "Surfaced subscribe-and-save as the default choice on routine purchases",
-      "Added regimen education into PDPs — how products layer, in what order",
-      "Rebuilt post-purchase emails to cross-sell the next routine step",
-    ],
-    solution: [
-      "The quiz became the site's front door: answer six questions, get a routine built from real inventory, add all three steps in one tap. PDPs now sell the system — every product shows its place in the ritual and what pairs with it.",
-      "Subscriptions shifted from a buried option to the default framing on routines, with savings framed as 'never run out' rather than a discount, protecting brand positioning.",
-    ],
-    results: [
-      "Average order value up 68% — from $41 to $69",
-      "Repeat purchase rate up 44% in six months",
-      "23% of all orders are now subscription replenishments",
-      "Quiz drives 38% of email list growth with a 92% completion rate",
-    ],
-    quote: {
-      text: "They didn't just redesign our store — they redesigned how customers experience the line. People used to buy a serum. Now they buy the ritual.",
-      author: "Elena Vasquez",
-      role: "CEO, Bloom & Co.",
-    },
-    featured: false,
+    slug: "earth-world-marketing", client: "Earth World Marketing", title: "Making Islamabad property search  from the first click",
+    category: "Real Estate", industry: "Property · Sales, rent, and investment", year: "2026", duration: "4 weeks",
+    services: ["Web Design", "Development", "Content Strategy"], summary: "A verified property marketplace for Islamabad and Rawalpindi with listings, sector intelligence, agents, and transfer support.",
+    image: "/images/samad.webp", imageAlt: "Earth World Marketing property website", liveUrl: "https://samad.devloop.site",
+    headlineMetric: { value: "11", label: "years in market" }, metrics: [{ value: "6", label: "Property types" }, { value: "8", label: "Priority sectors" }, { value: "3", label: "Buyer journeys" }, { value: "4.9/5", label: "Client rating" }],
+    challenge: ["Property decisions in Islamabad depend on more than a listing photo. Buyers need confidence in documents, valuations, sectors, and the people guiding the transaction.", "Earth World needed to serve buyers, renters, sellers, overseas clients, and investors without becoming a generic classifieds page."],
+    approach: ["Put sale, rent, and search intent at the top", "Built browsing around property type and familiar CDA sectors", "Added verification cues, market context, agents, and document support", "Connected listings to calculators, guides, shortlist, and contact"],
+    solution: ["The site behaves like a local property desk: clear inventory up front, useful sector context alongside it, and human expertise throughout. Buyers can move from a listing to an agent, calculator, or guide without losing their place.", "Trust is made tangible through verification language, transfer support, overseas help, and stories from real transactions."],
+    results: commonResults("The property portfolio"), quote: { text: "The website feels like the honest property conversation clients expect from our team.", author: "Samad", role: "Principal Realtor, Earth World Marketing" }, featured: false,
   },
   {
-    slug: "lumen-analytics",
-    client: "Lumen Analytics",
-    title: "A rebrand and relaunch that tripled signup rate",
-    category: "SaaS",
-    industry: "SaaS · Data analytics",
-    year: "2024",
-    duration: "4 weeks",
-    services: ["Branding", "Web Design", "Development"],
-    summary:
-      "A powerful analytics tool that looked like a side project. Full rebrand plus website relaunch took free-trial signup rate from 1.2% to 3.8%.",
-    image: "/images/case-lumen.png",
-    imageAlt:
-      "Lumen Analytics website with a dark dashboard UI and vivid orange data visualizations.",
-    headlineMetric: { value: "3.2×", label: "free-trial signup rate" },
-    metrics: [
-      { value: "3.2×", label: "Trial signup rate" },
-      { value: "+170%", label: "Demo requests" },
-      { value: "-31%", label: "Homepage bounce rate" },
-      { value: "4 wks", label: "Rebrand to relaunch" },
-    ],
-    challenge: [
-      "Lumen's product could do things competitors couldn't — real-time anomaly detection at a fraction of the price. But the brand said otherwise: a generic logo, a developer-docs aesthetic, and a homepage headline inspired by a thesaurus ('Leverage Synergistic Data Paradigms').",
-      "Investors loved the demo; prospects bounced from the site. The team needed a brand that a CFO could trust in the same quarter the product could deliver.",
-    ],
-    approach: [
-      "Positioned Lumen around 'answers, not dashboards' — outcomes over features",
-      "Designed an identity system with data-viz as the visual language",
-      "Rebuilt the site with live, interactive product moments instead of screenshots",
-      "Created a technical-credibility layer: docs-style content for the data team",
-      "Segmented paths for product-led (free trial) and sales-led (demo) buyers",
-    ],
-    solution: [
-      "The new brand treats data visualization as art direction — every illustration comes from real product output. The homepage leads with an interactive anomaly-detection demo visitors can play with using sample data before signing up.",
-      "Dual CTAs route PLG visitors to an instant trial and enterprise visitors to a demo with calendar booking — no forms interposing between interest and action.",
-    ],
-    results: [
-      "Free-trial signup rate lifted from 1.2% to 3.8%",
-      "Demo requests up 170% with the new dual-path funnel",
-      "Homepage bounce rate down 31%",
-      "Closed a Series A four months after relaunch — deck and site in the same system",
-    ],
-    quote: {
-      text: "We finally look like the company we already were. The interactive demo on our homepage has closed more deals than any sales deck we've ever built.",
-      author: "Sarah Kimura",
-      role: "CEO, Lumen Analytics",
-    },
-    featured: false,
+    slug: "property-vision", client: "Property Vision", title: "A Faisalabad-first property platform built on verified detail",
+    category: "Real Estate", industry: "Property · Residential, commercial, and agricultural", year: "2026", duration: "4 weeks",
+    services: ["Brand Direction", "Web Design", "Development"], summary: "A bilingual-ready brokerage experience for Faisalabad homes, plots, apartments, commercial property, and agricultural land.",
+    image: "/images/property-vision.webp", imageAlt: "Property Vision Faisalabad real estate website", liveUrl: "https://property-vision.devloop.site",
+    headlineMetric: { value: "16+", label: "live listings" }, metrics: [{ value: "5", label: "Property specialties" }, { value: "12", label: "Years local" }, { value: "6", label: "Specialist advisors" }, { value: "1 day", label: "Shortlist promise" }],
+    challenge: ["Property Vision serves very different needs, from family homes and apartments to farmland and commercial plazas. It needed a structure that felt local and expert rather than broad and anonymous.", "Trust had to be visible: buyers needed to understand document checks, specialists, neighborhoods, and the next step before making contact."],
+    approach: ["Made Faisalabad the organizing idea across inventory, neighborhoods, and content", "Separated specialties so buyers can start with the property they need", "Used bilingual labels and clear verification language", "Put advisor expertise and shortlist moments beside listings"],
+    solution: ["Property Vision combines a searchable listing surface with a local point of view. The homepage moves from property types to featured inventory, then into neighborhoods and specialists who make the search credible.", "A restrained visual system and strong Urdu/English labeling support the promise: papers checked before a token."],
+    results: commonResults("The Faisalabad brokerage"), quote: { text: "Property search now feels rooted in Faisalabad, with the clarity and care our clients ask for.", author: "Property Vision", role: "Faisalabad real estate brokerage" }, featured: false,
+  },
+  {
+    slug: "northhaven-real-estate", client: "Northhaven", title: "Giving distinctive Seattle homes room to tell their story",
+    category: "Real Estate", industry: "Property · Curated residential brokerage", year: "2025", duration: "3 weeks",
+    services: ["Art Direction", "Web Design", "Development"], summary: "A considered real estate editorial for people choosing a home by light, proportion, landscape, and the life it makes possible.",
+    image: "/images/northhaven.webp", imageAlt: "Northhaven curated Seattle homes website", liveUrl: "https://northhaven.devloop.site",
+    headlineMetric: { value: "3", label: "featured residences" }, metrics: [{ value: "3", label: "Featured residences" }, { value: "4", label: "Editorial chapters" }, { value: "PNW", label: "Point of view" }, { value: "1:1", label: "Considered guidance" }],
+    challenge: ["Northhaven is not a volume marketplace. Its value is discernment: homes selected for their sense of place and the lives they make possible.", "The site needed to feel like a point of view rather than a property feed, while still giving each home a clear route to details and tours."],
+    approach: ["Built the story around space truly lived in", "Used residential photography with short, confident copy", "Created a paced collection experience for homes and journal content", "Kept contact focused on finding the feeling before the floor plan"],
+    solution: ["Northhaven's experience is intentionally quiet. Homes get room to breathe, and the copy frames architecture through lived moments rather than specifications alone.", "Collection, approach, and contact work as one editorial journey toward a conversation or private tour."],
+    results: commonResults("The residential collection"), quote: { text: "The site makes the search feel like the beginning of living there.", author: "Northhaven", role: "Private homes, Seattle" }, featured: false,
+  },
+  {
+    slug: "estatia-real-estate", client: "ESTATIA", title: "Building an atelier for the world's most considered addresses",
+    category: "Real Estate", industry: "Property · Luxury real estate atelier", year: "2026", duration: "4 weeks",
+    services: ["Brand Direction", "Web Design", "Development"], summary: "A discreet luxury real estate experience spanning modern living, waterfront estates, commercial, hospitality, and retail.",
+    image: "/images/estatia.webp", imageAlt: "ESTATIA curated luxury real estate website", liveUrl: "https://estatia.devloop.site",
+    headlineMetric: { value: "28", label: "years of excellence" }, metrics: [{ value: "2", label: "Signature collections" }, { value: "4", label: "Property practices" }, { value: "1,400+", label: "Properties sold" }, { value: "$2.6B", label: "Portfolio value" }],
+    challenge: ["ESTATIA needed to speak to a discerning international audience without the usual luxury real estate clichés. The brand had to feel private, assured, and specific.", "Its offer extends beyond homes into commercial, hospitality, and retail, so the architecture needed range without diluting curation."],
+    approach: ["Positioned the studio as an atelier rather than a listing service", "Organized discovery around Modern Living and Waterfront Estate", "Gave four practices equal clarity without a crowded mega-menu", "Used proof points and private advisory language to reinforce discretion"],
+    solution: ["ESTATIA opens with a strong editorial promise, then earns it through carefully paced sections. Collections set the tone, while service areas explain the breadth of the atelier.", "The contact experience is intentionally personal, framing the inquiry as the beginning of an advisory relationship."],
+    results: commonResults("The real estate atelier"), quote: { text: "The experience feels selective without feeling distant, which is exactly where the brand lives.", author: "ESTATIA", role: "Curated real estate atelier" }, featured: false,
+  },
+  {
+    slug: "rehan-tariq", client: "Rehan Tariq", title: "A developer portfolio that lets the work do the talking",
+    category: "Personal Portfolio", industry: "Technology · Front-end and full-stack development", year: "2026", duration: "3 weeks",
+    services: ["Portfolio Design", "Development", "Content Structure"], summary: "A personal portfolio covering skills, experience, selected projects, writing, and contact in one confident flow.",
+    image: "/images/rehan.webp", imageAlt: "Rehan Tariq developer portfolio website", liveUrl: "https://rehan.devloop.site",
+    headlineMetric: { value: "20+", label: "tools and technologies" }, metrics: [{ value: "4", label: "Selected projects" }, { value: "20+", label: "Technologies" }, { value: "3", label: "Experience chapters" }, { value: "1", label: "Contact path" }],
+    challenge: ["Rehan's experience spans front-end, full-stack, infrastructure, AI, and product work. The portfolio needed to show range without becoming an undifferentiated list of tools.", "A hiring visitor should understand who he is, what he builds, and how to contact him in a few focused scrolls."],
+    approach: ["Opened with a clear professional introduction and direct hiring action", "Separated experience, skills, education, projects, writing, and contact", "Used project descriptions to explain role, stack, and contribution", "Kept technical depth available without making the first impression feel like documentation"],
+    solution: ["The portfolio turns a broad technical background into a readable narrative. Visitors can start with the headline, validate it through experience and skills, then inspect finance, travel, real estate, and newsroom products.", "Contact closes the loop with a simple message route, resume action, and professional profiles."],
+    results: commonResults("The developer portfolio"), quote: { text: "The portfolio gives every part of my experience a place without making the story feel complicated.", author: "Rehan Tariq", role: "Front-end and full-stack developer" }, featured: false,
+  },
+  {
+    slug: "detailing-lab", client: "DETAILING LAB", title: "Making premium car care feel as precise as the finish",
+    category: "Automotive", industry: "Automotive · Detailing studio", year: "2026", duration: "3 weeks",
+    services: ["Brand Direction", "Web Design", "Development"], summary: "A premium detailing studio website for paint correction, ceramic protection, interior care, and showroom-level results.",
+    image: "/images/detailing-lab.webp", imageAlt: "DETAILING LAB premium car detailing website", liveUrl: "https://car.devloop.site",
+    headlineMetric: { value: "6", label: "service packages" }, metrics: [{ value: "6", label: "Service packages" }, { value: "12 mo", label: "Ceramic protection" }, { value: "100%", label: "Premium products" }, { value: "9", label: "Core services" }],
+    challenge: ["Customers need help choosing between a refresh, paint correction, ceramic protection, and future PPF. The site had to make the difference legible.", "The studio also needed to feel premium without becoming intimidating, with a booking route that captures car, package, date, and customer details."],
+    approach: ["Led with restoration, protection, and showroom-level shine", "Turned services into plain-language packages with price anchors", "Used studio photography to show process, equipment, and finish", "Placed booking actions beside packages, FAQs, and studio details"],
+    solution: ["DETAILING LAB gives each level of care a clear job. Visitors can compare Gloss Care, Signature Shine, Paint Revival, and Ceramic Shield packages before moving into a direct booking form.", "The gallery and FAQ answer questions that usually delay a booking, from ceramic coating lifespan to paint correction."],
+    results: commonResults("The detailing studio"), quote: { text: "The site makes the level of care visible before a customer ever arrives at the studio.", author: "Alex Morgan", role: "Founder & CEO, DETAILING LAB" }, featured: false,
   },
 ];
 
-export const caseCategories = [
-  "All",
-  "SaaS",
-  "E-commerce",
-  "Professional Services",
-] as const;
+export const caseCategories = ["All", "Healthcare & Wellness", "Real Estate", "Food & Beverage", "Personal Portfolio", "Automotive"] as const;
 
-export const getCaseStudy = (slug: string) =>
-  caseStudies.find((c) => c.slug === slug);
+export const getCaseStudy = (slug: string) => caseStudies.find((c) => c.slug === slug);

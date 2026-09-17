@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
   {
   slug: "the-nutrition-club-clinic",
   client: "The Nutrition Club Clinic",
-  title: "A modern nutrition clinic experience built around evidence-based care and lasting lifestyle change",
+  title: "A modern nutrition clinic experience built around evidence",
   category: "Healthcare & Wellness",
   industry: "Clinical Nutrition · Dietetics",
   year: "2026",
@@ -118,7 +118,7 @@ export const caseStudies: CaseStudy[] = [
   {
   slug: "dietwise-mariyam-zubair",
   client: "Dietwise by Dn. Mariyam Zubair",
-  title: "A personalized nutrition platform built around sustainable health, not restrictive diets",
+  title: "A personalized nutrition platform built around sustainable health",
   category: "Healthcare & Wellness",
   industry: "Clinical Nutrition · Dietetics",
   year: "2026",

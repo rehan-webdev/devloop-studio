@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/bluehost",
+      "destination": "https://your-bluehost-affiliate-link.com",
+      "permanent": true
+    }
+  ]
+}

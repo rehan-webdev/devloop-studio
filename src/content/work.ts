@@ -58,7 +58,7 @@ export const caseStudies: CaseStudy[] = [
   summary:
     "A professional digital experience designed to connect individuals with qualified nutrition support through personalized consultations, practical guidance, and sustainable health solutions.",
 
-  image: "/images/nutrition-club-clinic.webp",
+  image: "/images/nutrition-club-clinic-first-screen.webp",
   imageAlt: "The Nutrition Club Clinic website design",
   liveUrl: "https://thenutritionclubclinic.com",
 
@@ -133,7 +133,7 @@ export const caseStudies: CaseStudy[] = [
   summary:
     "A calm and professional nutrition experience designed to help individuals improve their health through practical, personalized guidance rather than short-term diet trends.",
 
-  image: "/images/dietwise.webp",
+  image: "/images/dietwise-first-screen.webp",
   imageAlt: "Dietwise by Dn. Mariyam Zubair nutrition website",
   liveUrl: "https://dietwise.devloop.site",
 

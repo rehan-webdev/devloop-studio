@@ -41,8 +41,8 @@ export const caseStudies: CaseStudy[] = [
     results: commonResults("The nutrition practice"), quote: { text: "The site makes personalized nutrition feel as thoughtful and approachable as the care itself.", author: "Dr. Esha Nasir", role: "Consultant Dietitian & Nutritionist" }, featured: true,
   },
   {
-  slug: "the-nutrition-club-clinic",
-  client: "The Nutrition Club Clinic",
+  slug: "the-nutrition-club",
+  client: "The Nutrition Club",
   title: "A modern nutrition clinic experience built around evidence",
   category: "Healthcare & Wellness",
   industry: "Clinical Nutrition · Dietetics",
@@ -117,7 +117,7 @@ export const caseStudies: CaseStudy[] = [
   },
   {
   slug: "dietwise-mariyam-zubair",
-  client: "Dietwise by Dn. Mariyam Zubair",
+  client: "Dietwise by MZ.",
   title: "A personalized nutrition platform built around sustainable health",
   category: "Healthcare & Wellness",
   industry: "Clinical Nutrition · Dietetics",

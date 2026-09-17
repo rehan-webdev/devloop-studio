@@ -41,6 +41,70 @@ export const caseStudies: CaseStudy[] = [
     results: commonResults("The nutrition practice"), quote: { text: "The site makes personalized nutrition feel as thoughtful and approachable as the care itself.", author: "Dr. Esha Nasir", role: "Consultant Dietitian & Nutritionist" }, featured: true,
   },
   {
+  slug: "the-nutrition-club-clinic",
+  client: "The Nutrition Club Clinic",
+  title: "A modern nutrition clinic experience built around evidence-based care and lasting lifestyle change",
+  category: "Healthcare & Wellness",
+  industry: "Clinical Nutrition · Dietetics",
+  year: "2026",
+  duration: "4 weeks",
+
+  services: [
+    "Brand Strategy",
+    "Web Design",
+    "Development"
+  ],
+
+  summary:
+    "A professional digital experience designed to connect individuals with qualified nutrition support through personalized consultations, practical guidance, and sustainable health solutions.",
+
+  image: "/images/nutrition-club-clinic.webp",
+  imageAlt: "The Nutrition Club Clinic website design",
+  liveUrl: "https://thenutritionclubclinic.com",
+
+  headlineMetric: {
+    value: "10+",
+    label: "health concerns supported"
+  },
+
+  metrics: [
+    { value: "10+", label: "Nutrition specialties" },
+    { value: "1", label: "Personalized care model" },
+    { value: "100%", label: "Evidence-based guidance" },
+    { value: "0", label: "Fad diet promises" }
+  ],
+
+  challenge: [
+    "Many people seeking nutrition advice are overwhelmed by conflicting information online and often struggle to identify qualified professionals they can trust.",
+    "The clinic needed a website that communicated credibility, expertise, and personalized care while making nutrition services feel approachable and easy to understand."
+  ],
+
+  approach: [
+    "Designed a clear information architecture around nutrition services, health conditions, and consultation pathways",
+    "Used clean layouts, generous spacing, and professional imagery to reinforce trust and credibility",
+    "Created educational sections that explain nutrition care in simple, accessible language",
+    "Focused messaging on sustainable lifestyle improvements rather than quick-fix solutions"
+  ],
+
+  solution: [
+    "The final website presents nutrition care as a collaborative journey. Visitors can easily understand available services, explore areas of expertise, and take the next step toward personalized support.",
+    "Educational content and service-focused pages help establish authority while making the clinic feel welcoming and approachable for first-time visitors."
+  ],
+
+  results: commonResults(
+    "The clinical nutrition practice"
+  ),
+
+  quote: {
+    text:
+      "Our goal was to make expert nutrition support feel accessible, trustworthy, and practical. The website now reflects the standard of care we provide every day.",
+    author: "The Nutrition Club Clinic",
+    role: "Clinical Nutrition & Dietetics Practice"
+  },
+
+  featured: true
+},
+  {
     slug: "essence-coffee", client: "ESSENCE Coffee", title: "Turning a coffee ritual into a place you can almost taste",
     category: "Food & Beverage", industry: "Coffee · Artisan roastery", year: "2026", duration: "4 weeks",
     services: ["Brand Direction", "Web Design", "Development"], summary: "A ceremonial Turkish coffee experience for a Multan roastery built around small-batch craft, ritual, and an unmistakable collection.",
@@ -51,6 +115,70 @@ export const caseStudies: CaseStudy[] = [
     solution: ["The experience opens like a ritual: deliberate type, tactile coffee imagery, and language that slows the visitor down. The collection stays easy to browse, with signature drinks and prices available without interrupting the mood.", "A clear path from story to order-ahead and roastery details turns brand desire into a visit or purchase."],
     results: commonResults("The roastery story"), quote: { text: "The website finally feels like the first pour: patient, precise, and full of character.", author: "ESSENCE Coffee", role: "Small-batch roastery, Multan" }, featured: true,
   },
+  {
+  slug: "dietwise-mariyam-zubair",
+  client: "Dietwise by Dn. Mariyam Zubair",
+  title: "A personalized nutrition platform built around sustainable health, not restrictive diets",
+  category: "Healthcare & Wellness",
+  industry: "Clinical Nutrition · Dietetics",
+  year: "2026",
+  duration: "3 weeks",
+
+  services: [
+    "Brand Direction",
+    "Web Design",
+    "Development"
+  ],
+
+  summary:
+    "A calm and professional nutrition experience designed to help individuals improve their health through practical, personalized guidance rather than short-term diet trends.",
+
+  image: "/images/dietwise.webp",
+  imageAlt: "Dietwise by Dn. Mariyam Zubair nutrition website",
+  liveUrl: "https://dietwise.devloop.site",
+
+  headlineMetric: {
+    value: "3",
+    label: "nutrition pathways"
+  },
+
+  metrics: [
+    { value: "3", label: "Core services" },
+    { value: "1", label: "Personalized approach" },
+    { value: "6", label: "Health focus areas" },
+    { value: "0", label: "Crash diets" }
+  ],
+
+  challenge: [
+    "Many nutrition websites focus heavily on weight-loss promises and generic meal plans. Dietwise needed a more trustworthy experience that reflected professional dietetic care and long-term health outcomes.",
+    "The platform also needed to communicate services clearly while remaining approachable for people seeking help with everyday nutrition, lifestyle improvements, and clinical concerns."
+  ],
+
+  approach: [
+    "Structured the experience around personalized nutrition, sustainable habits, and evidence-based guidance",
+    "Used clean layouts, calming colors, and wellness-focused imagery to build trust",
+    "Created clear pathways to consultations, nutrition programs, and educational content",
+    "Focused messaging on practical lifestyle changes rather than restrictive dieting"
+  ],
+
+  solution: [
+    "The final experience balances professionalism with warmth. Visitors are introduced to Mariyam's nutrition philosophy before exploring services tailored to different health goals.",
+    "Clear navigation, approachable content, and educational resources help users feel informed and supported before booking a consultation."
+  ],
+
+  results: commonResults(
+    "The nutrition and wellness brand"
+  ),
+
+  quote: {
+    text:
+      "We wanted nutrition to feel practical, personal, and sustainable. The website finally reflects that philosophy.",
+    author: "Dn. Mariyam Zubair",
+    role: "Clinical Dietitian & Nutrition Consultant"
+  },
+
+  featured: true
+},
   {
     slug: "maham-wellness", client: "Maham", title: "A softer digital home for bridal nutrition and everyday glow",
     category: "Healthcare & Wellness", industry: "Nutrition · Bridal wellness", year: "2026", duration: "3 weeks",

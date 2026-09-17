@@ -10,6 +10,7 @@ export const site = {
   url: "https://devloop.site",
   email: "devloop.site@gmail.com",
   phone: "+923281098252",
+  whatsappMessage: "Hi DevLoop, I’m interested in discussing a project and would love to learn how you can help. Looking forward to hearing from you.",
   location: "Remote-first · Serving clients worldwide",
   founded: "2019",
   socials: [

@@ -3,6 +3,7 @@ import { Fraunces, IBM_Plex_Mono, Inter } from "next/font/google";
 import { site } from "@/content/site";
 import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
+import { WhatsAppButton } from "@/components/layout/whatsapp-button";
 import "./globals.css";
 import Script from 'next/script';
 
@@ -120,6 +121,7 @@ export default function RootLayout({
     </main>
 
     <Footer />
+    <WhatsAppButton />
   </body>
 
   <Script
